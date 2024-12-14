@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  nestjs-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: backend-elginbrian-com
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USERNAME: postgres
+      DB_PASSWORD: password
+      DB_NAME: edutech
+      JWT_SECRET: 42cc7afa3785ceb3cfd6434ab2745f1fc7dc77bd5252fc93faac612da2ea7e82e41c16b4e971e6aeba7093552f43634569c2af898e0fb71b9e1fb17b840f828a
+      JWT_EXPIRATION: 3600s
+    ports:
+      - '3000:3000'
+    depends_on:
+      - db
+    networks:
+      - elginbrian-network
+
+  db:
+    image: postgres:latest
+    container_name: db-elginbrian-com
+    environment:
+      POSTGRES_DB: elginbrian
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - '5432:5432'
+    networks:
+      - elginbrian-network
+
+networks:
+  edutech-network:
+    driver: bridge
