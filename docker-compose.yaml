@@ -15,7 +15,7 @@ services:
       JWT_SECRET: 42cc7afa3785ceb3cfd6434ab2745f1fc7dc77bd5252fc93faac612da2ea7e82e41c16b4e971e6aeba7093552f43634569c2af898e0fb71b9e1fb17b840f828a
       JWT_EXPIRATION: 3600s
     ports:
-      - '3000:3000'
+      - '3001:3000'
     depends_on:
       - db
     networks:
