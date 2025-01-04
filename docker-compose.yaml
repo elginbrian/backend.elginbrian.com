@@ -34,5 +34,5 @@ services:
       - elginbrian-network
 
 networks:
-  edutech-network:
+  elginbrian-network:
     driver: bridge
