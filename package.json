@@ -346,7 +346,10 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"No tests yet\""
+    "test": "echo \"No tests yet\"",
+    "build": "nest build",
+    "start": "nest start",
+    "start:prod": "node dist/main"
   },
   "keywords": [],
   "author": "",
