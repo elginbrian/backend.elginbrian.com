@@ -3,10 +3,10 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
   build-and-test:
@@ -21,7 +21,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16' # Specify your Node.js version here
+          node-version: '16'
 
       # Step 3: Install dependencies and run tests
       - name: Install dependencies and run tests
@@ -65,7 +65,7 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           port: ${{ secrets.SERVER_PORT }}
           script: |
-            cd /path/to/your/nestjs/app
-            git pull https://github.com/elginbrian/nestjs-app.git
+            cd github/backend.elginbrian.com
+            git pull https://github.com/elginbrian/backend.elginbrian.com.git
             docker-compose down
             docker-compose up --build -d
